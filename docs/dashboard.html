@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>ControlPlane.ai — Live Oversight Dashboard</title>
+<style>
+  :root {
+    --bg: #0b0b0d;
+    --panel: #121316;
+    --panel-alt: #171a1d;
+    --border: #2e2a2a;
+    --text: #f4f1f1;
+    --muted: #c8baba;
+    --accent: #b30d0d;
+    --accent-soft: #7b0d0d;
+    --shadow: rgba(0, 0, 0, 0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 32px;
+  }
+  h1 {
+    font-size: 24px;
+    margin: 0 0 6px;
+    letter-spacing: 0.02em;
+    color: #f9eeee;
+  }
+  .sub {
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+  .cards {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: #121316;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    min-width: 140px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.02), 0 10px 16px rgba(0,0,0,0.4);
+  }
+  .card-num {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #f3d5d5;
+  }
+  .card-label {
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: capitalize;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+  .metrics {
+    background: #141415;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    color: #f3ecec;
+    font-size: 14px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.02);
+  }
+  .metrics b { color: #ffb4b4; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #221b1b;
+    vertical-align: top;
+  }
+  th {
+    color: #d7b5b5;
+    background: #140d0d;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  td { color: #f5ecec; }
+  tbody tr:hover { background: #161314; }
+  .badge {
+    display: inline-block;
+    color: #fff4f4;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    border: 1px solid rgba(255,255,255,0.12);
+    text-shadow: 0 0 8px rgba(255,255,255,0.2);
+  }
+</style></head>
+<body>
+  <h1><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#ff4d4d;box-shadow:0 0 12px #ff4d4d;margin-right:10px;vertical-align:middle;"></span>ControlPlane.ai | Live AI Oversight Dashboard</h1>
+  <div class="sub"><span style="color:#ff6a6a;">|</span> Performance <span style="color:#ff6a6a;">|</span> Cost <span style="color:#ff6a6a;">|</span> Responsibility <span style="color:#ff6a6a;">|</span> 19 interactions monitored</div>
+  <div class="cards"><div class="card"><div class="card-num">12</div><div class="card-label">Allow</div></div><div class="card"><div class="card-num">2</div><div class="card-label">Edit</div></div><div class="card"><div class="card-num">3</div><div class="card-label">Block</div></div><div class="card"><div class="card-num">2</div><div class="card-label">Flag for review</div></div></div>
+  <div class="metrics">
+    Escalated to multi-sample check: <b>3/19</b> &nbsp;|&nbsp;
+    Model-call cost units used: <b>34</b> (vs 114 naive) &nbsp;|&nbsp;
+    Adaptive-cost savings: <b>70.2%</b>
+  </div>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Use case</th><th>Query</th><th>Decision</th><th>Escalated</th><th>Cost units</th><th>Reason (audit trail)</th></tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>cf-01</td>
+          <td>customer_facing_chatbot</td>
+          <td style="max-width:320px; color:#f2d7d7;">What is your standard return window?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>cf-02</td>
+          <td>customer_facing_chatbot</td>
+          <td style="max-width:320px; color:#f2d7d7;">Is my order #48213 eligible for free shipping?</td>
+          <td><span class="badge badge-edit" style="background:#b76312; box-shadow: 0 0 10px #b76312, inset 0 0 0 1px rgba(255,255,255,0.08);">Edit</span></td>
+          <td>yes</td>
+          <td>6</td>
+          <td style="max-width:360px; color:#f0d8d8;">Moderate sample disagreement (0.4) -- hedge/caveat before showing user</td>
+        </tr>
+        <tr>
+          <td>cf-03</td>
+          <td>customer_facing_chatbot</td>
+          <td style="max-width:320px; color:#f2d7d7;">Can you look up my account details?</td>
+          <td><span class="badge badge-block" style="background:#7f0f0f; box-shadow: 0 0 10px #7f0f0f, inset 0 0 0 1px rgba(255,255,255,0.08);">Block</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">PII/sensitive pattern detected: ['email', 'phone']</td>
+        </tr>
+        <tr>
+          <td>cf-04</td>
+          <td>customer_facing_chatbot</td>
+          <td style="max-width:320px; color:#f2d7d7;">Do you ship internationally?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>cf-05</td>
+          <td>customer_facing_chatbot</td>
+          <td style="max-width:320px; color:#f2d7d7;">What's the warranty on the Pro model?</td>
+          <td><span class="badge badge-edit" style="background:#b76312; box-shadow: 0 0 10px #b76312, inset 0 0 0 1px rgba(255,255,255,0.08);">Edit</span></td>
+          <td>yes</td>
+          <td>6</td>
+          <td style="max-width:360px; color:#f0d8d8;">Moderate sample disagreement (0.4) -- hedge/caveat before showing user</td>
+        </tr>
+        <tr>
+          <td>ik-01</td>
+          <td>internal_knowledge_assistant</td>
+          <td style="max-width:320px; color:#f2d7d7;">What's our current PTO policy for new hires?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>ik-02</td>
+          <td>internal_knowledge_assistant</td>
+          <td style="max-width:320px; color:#f2d7d7;">What was the VP Engineering compensation band discussed last quarter?</td>
+          <td><span class="badge badge-flag_for_review" style="background:#b51d1d; box-shadow: 0 0 10px #b51d1d, inset 0 0 0 1px rgba(255,255,255,0.08);">Flag for review</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">Near-duplicate of governed sensitive document (similarity=0.956)</td>
+        </tr>
+        <tr>
+          <td>ik-03</td>
+          <td>internal_knowledge_assistant</td>
+          <td style="max-width:320px; color:#f2d7d7;">Summarize the Q3 unreleased earnings for the leadership deck.</td>
+          <td><span class="badge badge-flag_for_review" style="background:#b51d1d; box-shadow: 0 0 10px #b51d1d, inset 0 0 0 1px rgba(255,255,255,0.08);">Flag for review</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">Near-duplicate of governed sensitive document (similarity=1.0)</td>
+        </tr>
+        <tr>
+          <td>ik-04</td>
+          <td>internal_knowledge_assistant</td>
+          <td style="max-width:320px; color:#f2d7d7;">Which vendor do we use for background checks?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>ik-05</td>
+          <td>internal_knowledge_assistant</td>
+          <td style="max-width:320px; color:#f2d7d7;">How many engineering teams shipped to prod last sprint?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>yes</td>
+          <td>6</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>ik-06</td>
+          <td>internal_knowledge_assistant</td>
+          <td style="max-width:320px; color:#f2d7d7;">What's the escalation path for a P1 incident?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>ds-01</td>
+          <td>decision_support_regulated</td>
+          <td style="max-width:320px; color:#f2d7d7;">Given the applicant's debt-to-income ratio of 0.41, should we approve the loan?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>ds-02</td>
+          <td>decision_support_regulated</td>
+          <td style="max-width:320px; color:#f2d7d7;">Patient presents with chest pain and elevated troponin -- suggested triage priority?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>ds-03</td>
+          <td>decision_support_regulated</td>
+          <td style="max-width:320px; color:#f2d7d7;">Patient record: John A., DOB 04/12/1985 -- summarize insurance eligibility.</td>
+          <td><span class="badge badge-block" style="background:#7f0f0f; box-shadow: 0 0 10px #7f0f0f, inset 0 0 0 1px rgba(255,255,255,0.08);">Block</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">Near-duplicate of governed sensitive document (similarity=0.807)</td>
+        </tr>
+        <tr>
+          <td>ds-04</td>
+          <td>decision_support_regulated</td>
+          <td style="max-width:320px; color:#f2d7d7;">Flag any compliance risk in this vendor contract clause on data retention.</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>ds-05</td>
+          <td>decision_support_regulated</td>
+          <td style="max-width:320px; color:#f2d7d7;">Should this transaction of $9,800 cash be flagged for AML review?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>ds-06</td>
+          <td>decision_support_regulated</td>
+          <td style="max-width:320px; color:#f2d7d7;">What's the projected default probability for this SME loan applicant?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+        <tr>
+          <td>cf-06</td>
+          <td>customer_facing_chatbot</td>
+          <td style="max-width:320px; color:#f2d7d7;">What payment methods do you accept?</td>
+          <td><span class="badge badge-block" style="background:#7f0f0f; box-shadow: 0 0 10px #7f0f0f, inset 0 0 0 1px rgba(255,255,255,0.08);">Block</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">PII/sensitive pattern detected: ['card_number']</td>
+        </tr>
+        <tr>
+          <td>ik-07</td>
+          <td>internal_knowledge_assistant</td>
+          <td style="max-width:320px; color:#f2d7d7;">What's the status of the Q3 migration project?</td>
+          <td><span class="badge badge-allow" style="background:#1d6d3d; box-shadow: 0 0 10px #1d6d3d, inset 0 0 0 1px rgba(255,255,255,0.08);">Allow</span></td>
+          <td>no</td>
+          <td>1</td>
+          <td style="max-width:360px; color:#f0d8d8;">High agreement across samples (1.0)</td>
+        </tr>
+    </tbody>
+  </table>
+</body></html>
